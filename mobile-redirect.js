@@ -1,14 +1,16 @@
 (function () {
-  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-    .test(navigator.userAgent);
+  // Определяем мобильное устройство по userAgent
+  var isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i
+    .test(navigator.userAgent.toLowerCase());
 
   if (!isMobile) return;
 
-  var path = window.location.pathname;
-  var page = path.split('/').pop();
+  var path = window.location.pathname;           // например: /fasad/main-window.html
+  var segments = path.split('/');               // ["", "fasad", "main-window.html"]
+  var page = segments.pop() || 'index.html';    // main-window.html или index.html
+  var base = segments.join('/') || '';          // "" или "/fasad"
 
   var map = {
-    '': 'm-index.html',
     'index.html': 'm-index.html',
     'main-beton.html': 'm-beton.html',
     'main-window.html': 'm-window.html',
@@ -17,10 +19,18 @@
     'main-vent.html': 'm-vent.html'
   };
 
+  // если заходят по адресу без имени файла (типа /fasad/), считаем это index.html
+  if (!page || page === '') {
+    page = 'index.html';
+  }
+
+  // Уже на мобильной странице — ничего не делаем
+  if (page.startsWith('m-')) return;
+
   var target = map[page];
+  if (!target) return; // нет соответствия
 
-  if (!target) return;          // нет соответствия
-  if (page && page.startsWith('m-')) return; // уже мобильная
-
-  window.location.href = '/' + target;
+  // Собираем новый путь в той же папке
+  var newPath = base + '/' + target;
+  window.location.replace(newPath);
 })();
