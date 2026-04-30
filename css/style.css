@@ -1,5 +1,5 @@
 /* =========================================================
-   1. БАЗА: HTML, BODY, ШРИФТЫ
+   1. БАЗА: HTML, BODY, ШРИФТЫ, ЕДИНЫЙ ФОН
    ========================================================= */
 
 html, body {
@@ -20,7 +20,16 @@ html, body {
 }
 
 body {
-  background-color: #111111;
+  /* Один общий градиент для всего сайта */
+  background: linear-gradient(
+    to bottom,
+    #3a3a3a 0%,
+    #252525 40%,
+    #141414 100%
+  );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #ffffff;
   overflow-x: hidden;
   font-family: 'IBMPlexSerif-Thin', serif;
@@ -38,10 +47,6 @@ body.page-fade-out {
 
 /* =========================================================
    2. ОБЩИЙ КОНТЕЙНЕР-СЦЕНА 16:9
-   ---------------------------------------------------------
-   На десктопах 1920×1080 сцена ≈ 1600×900px, далее
-   уменьшается пропорционально, чтобы элементы не наезжали
-   друг на друга.[web:21][web:22][web:31]
    ========================================================= */
 
 .scene-wrapper {
@@ -52,31 +57,22 @@ body.page-fade-out {
 
 .scene {
   position: relative;
-  width: min(1600px, 100vw - 40px); /* максимум ~1600, есть поля */
-  aspect-ratio: 16 / 9;             /* сохраняем пропорции */
+  width: min(1600px, 100vw - 40px); /* основной контейнер под 1920×1080 */
+  aspect-ratio: 16 / 9;             /* сохраняем пропорции макета */
 }
 
-/* Внутри .scene всё позиционируется так, как было рассчитано
-   под 1920×1080. Если у тебя что-то было от левого/верхнего края
-   окна — теперь это относительно .scene. */
+/* Лёгкая подложка внутри сцены (если не нужна — можно убрать background) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 40px;
+}
 
 /* =========================================================
    3. HERO / ЗАГОЛОВОК (общий)
    ========================================================= */
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    #050505 0%,
-    #0b0b0b 70%,
-    #111111 100%
-  );
-  border-radius: 40px;
-}
-
-/* Заголовок "ООО ФАСАД" */
 .main-name {
   position: absolute;
   left: 50%;
@@ -118,7 +114,7 @@ body.page-fade-out {
 }
 
 /* =========================================================
-   4. ПОИСК (общий, позиция разная для главной и др.)
+   4. ПОИСК (главная)
    ========================================================= */
 
 .search {
@@ -130,7 +126,7 @@ body.page-fade-out {
   height: 7%;
   border-radius: 35px;
   background: rgba(0, 0, 0, 0.35);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   padding: 0 24px;
@@ -139,7 +135,7 @@ body.page-fade-out {
 }
 .search:hover {
   transform: translateX(-50%) translateY(-4px);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
 }
 .search-input {
   flex: 1;
@@ -161,7 +157,7 @@ body.page-fade-out {
 }
 
 /* =========================================================
-   5. КАРТОЧКИ (главная, внутри .scene)
+   5. КАРТОЧКИ (главная)
    ========================================================= */
 
 .cards-grid {
@@ -235,19 +231,8 @@ body.page-fade-out {
   margin: 0;
 }
 
-/* Текст под карточками на главной */
-.overflow-text.all {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 86%;
-  width: 80%;
-  font-size: clamp(14px, 1vw, 18px);
-  text-align: center;
-}
-
 /* =========================================================
-   6. КОНТАКТЫ (фиксировано относительно окна, не сцены)
+   6. КОНТАКТЫ (фиксировано к окну)
    ========================================================= */
 
 .contacts-container {
@@ -256,6 +241,14 @@ body.page-fade-out {
   bottom: 24px;
   transform: translateX(-50%);
   z-index: 20;
+  text-align: center;
+}
+
+/* Текст над кнопкой контактов — привязан к контейнеру контактов */
+.contacts-note {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 8px;
 }
 
 .contacts-link {
@@ -348,13 +341,12 @@ body.page-fade-out {
    7. ВНУТРЕННИЕ СТРАНИЦЫ: ОБЩИЕ ЭЛЕМЕНТЫ
    ========================================================= */
 
-/* Фон/контейнер на внутренних страницах */
 .overflow {
   position: absolute;
   top: 18%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(16, 16, 16, 0.8);
+  background-color: rgba(16, 16, 16, 0.9);
   box-shadow: 0 20px 50px 3px black;
   border-radius: 40px;
   width: 90%;
@@ -369,7 +361,7 @@ body.page-fade-out {
   top: 27%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(16, 16, 16, 0.8);
+  background-color: rgba(16, 16, 16, 0.9);
   box-shadow: 0 20px 50px 3px black;
   border-radius: 40px;
   width: 90%;
@@ -379,7 +371,6 @@ body.page-fade-out {
   z-index: 0;
 }
 
-/* Кнопка "назад" */
 .back {
   position: absolute;
   filter: invert(100%);
@@ -390,7 +381,6 @@ body.page-fade-out {
   top: 46%;
 }
 
-/* Контакты на внутренних страницах (позиции рассчитаны под сцену 1600×900) */
 .overflow2-text,
 .overflow-text {
   position: absolute;
@@ -402,22 +392,21 @@ body.page-fade-out {
   color: rgba(255,255,255, 0.6);
   font-size: clamp(20px, 2.1vw, 32px);
   right: 8%;
-  top: 61%;
+  top: 80%;
 }
 .overflow2-text.email,
 .overflow-text.email {
   color: rgba(255,255,255, 0.6);
   font-size: clamp(20px, 2.1vw, 32px);
   right: 8%;
-  top: 67%;
+  top: 90%;
 }
 
-/* Блок "А так же" */
 .overflow2-text.upper {
   position: absolute;
   color: rgba(255,255,255, 0.6);
   font-size: clamp(22px, 2.2vw, 32px);
-  left: 8%;
+  left: 10%;
   top: 30%;
 }
 
@@ -438,11 +427,10 @@ body.page-fade-out {
   font-size: clamp(20px, 2vw, 30px);
 }
 .overflow2-text.upper-2-1 {
-  margin-top: 12px;
-  margin-right: 48px;
+  margin-top: 182px;
 }
 .overflow2-text.upper-2-2 {
-  margin-top: 12px;
+  margin-top: 32px;
 }
 .overflow2-text.upper-2-1 a:hover,
 .overflow2-text.upper-2-2 a:hover {
@@ -450,25 +438,23 @@ body.page-fade-out {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Описание продукта на внутренних страницах */
 .overflow2-text-all {
   position: absolute;
-  font-size: clamp(18px, 1.7vw, 24px);
+  font-size: clamp(35px, 1.7vw, 24px);
   text-align: left;
-  left: 8%;
+  left: 43%;
   width: 48%;
-  top: 38%;
+  top: 29%;
   line-height: 1.4;
 }
 
-/* Блок цены */
 .price-clat {
   position: absolute;
   background-color: rgb(16, 16, 16);
   box-shadow: 0 20px 50px 3px black;
   border-radius: 40px;
-  top: 42%;
-  right: 6%;
+  top: 79%;
+  right: 37%;
   width: 24%;
   height: 18%;
 }
@@ -478,12 +464,12 @@ body.page-fade-out {
   font-size: clamp(26px, 2.8vw, 48px);
   width: 22%;
   color: rgba(255,255,255, 0.6);
-  right: 7%;
-  top: 45%;
+  right: 34%;
+  top: 83%;
 }
 
 /* =========================================================
-   8. СТРАНИЦА БЕТОН: ИЗОБРАЖЕНИЕ И ТАБЛИЦА
+   8. БЕТОН: ФОТО + ТАБЛИЦА (позиции ближе к исходному)
    ========================================================= */
 
 .overflow-img {
@@ -491,7 +477,7 @@ body.page-fade-out {
   box-shadow: 0 0 50px 2px rgba(255, 255, 255, 0.25);
   z-index: 1;
   border-radius: 30px;
-  top: 22%;
+  top: 15%;
   right: 4%;
   width: 46%;
   height: auto;
@@ -502,55 +488,35 @@ body.page-fade-out {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
-  top: 30%;
-  left: 6%;
-  width: 45%;
-  height: 1px;
-}
-.stick::before {
-  position: absolute;
-  content: "";
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-  top: 50%;
-  left: 0;
-  width: 88%;
-  height: 1px;
-}
-.stick::after {
-  position: absolute;
-  content: "";
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
   top: 25%;
-  left: 0;
+  left: 2%;
   width: 45%;
   height: 1px;
 }
 
-/* Текст таблицы */
+/* Заголовки и значения таблицы */
 .table {
   position: absolute;
   z-index: 3;
 }
 .table.key {
   font-size: clamp(24px, 2.2vw, 32px);
-  top: 26%;
-  left: 6.5%;
+  top: 18%;
+  left: 7%;
 }
 .table.key.t {
   font-size: clamp(24px, 2.2vw, 32px);
-  top: 36%;
-  left: 7%;
+  top: 40%;
+  left: 8%;
 }
 .table.key.x {
   font-size: clamp(24px, 2.2vw, 32px);
   top: 60%;
-  left: 6.5%;
+  left: 7.3%;
 }
 .table.key.y {
   color: rgba(255, 255, 255, 0.6);
-  left: 6.8%;
+  left: 8%;
   top: 84%;
 }
 .table.value {
@@ -558,11 +524,11 @@ body.page-fade-out {
 }
 .table.value.t {
   left: 20%;
-  top: 32%;
+  top: 29%;
 }
 .table.value.x {
   left: 20%;
-  top: 57%;
+  top: 56%;
 }
 .table.add {
   font-size: clamp(16px, 1.6vw, 24px);
@@ -572,7 +538,7 @@ body.page-fade-out {
 }
 
 /* =========================================================
-   9. МЕДИА-ЗАПРОСЫ (адаптация)
+   9. МЕДИА-ЗАПРОСЫ (адаптивность)
    ========================================================= */
 
 @media (max-width: 1280px) {
@@ -592,15 +558,10 @@ body.page-fade-out {
     top: 54%;
   }
 
-  .overflow-text.all {
-    top: 88%;
-  }
-
   .back {
     top: 50%;
   }
 
-  /* Внутренние страницы: делаем блоки более компактными */
   .overflow2 {
     top: 30%;
     height: 52%;
@@ -623,7 +584,7 @@ body.page-fade-out {
   .scene {
     width: 100vw;
     aspect-ratio: auto;
-    padding-bottom: 120px;
+    padding-bottom: 140px;
   }
 
   .hero-bg {
@@ -651,11 +612,6 @@ body.page-fade-out {
     width: calc(100% - 32px);
     margin: 0 auto;
     grid-template-columns: 1fr;
-  }
-
-  .overflow-text.all {
-    position: static;
-    margin: 16px auto 32px auto;
   }
 
   .overflow,
@@ -695,7 +651,6 @@ body.page-fade-out {
     text-align: center;
   }
 
-  /* Таблицу бетона на телефонах можно воспринимать как обычный текст */
   .table.value,
   .table.add {
     margin: 8px 16px;

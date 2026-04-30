@@ -1,0 +1,247 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+@font-face {
+  font-family: 'IBMPlexSerif-Thin';
+  src:
+    url('../fonts/IBMPlexSerif-Thin.woff2') format('woff2'),
+    url('../fonts/IBMPlexSerif-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'IBMPlexSerif-Thin', serif;
+  background: linear-gradient(
+    to bottom,
+    #3a3a3a 0%,
+    #252525 40%,
+    #141414 100%
+  );
+  color: #ffffff;
+}
+
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 16px 32px 16px;
+  box-sizing: border-box;
+}
+
+/* Заголовки */
+
+.m-header-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.m-header-sub {
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Назад */
+
+.m-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+}
+.m-back img {
+  width: 18px;
+  filter: invert(100%);
+}
+
+/* Поиск на мобильной главной */
+
+.m-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 999px;
+  padding: 8px 14px;
+  margin: 16px 0;
+}
+.m-search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: rgba(255,255,255,0.9);
+  font-family: 'IBMPlexSerif-Thin', serif;
+}
+.m-search input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+.m-search img {
+  width: 18px;
+  filter: invert(100%);
+  opacity: 0.7;
+}
+
+/* Список направлений */
+
+.m-main-list {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+.m-main-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 4px;
+}
+.m-main-item img {
+  width: 18px;
+  filter: invert(100%);
+}
+
+/* Карточки на m-index */
+
+.m-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.m-card {
+  text-decoration: none;
+  color: inherit;
+  background-color: rgba(0,0,0,0.45);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.6);
+}
+.m-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.m-card-body {
+  padding: 10px 12px 12px 12px;
+}
+.m-card-title {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.m-card-price {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* Контакты */
+
+.m-contacts-note {
+  margin-top: 20px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+}
+.m-contacts-list {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.m-contacts-link {
+  text-align: center;
+  text-decoration: none;
+  color: rgba(255,255,255,0.9);
+  background: rgba(16,16,16,0.85);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+/* Внутренние мобильные страницы */
+
+.m-section {
+  margin-top: 16px;
+  padding: 14px 14px;
+  background-color: rgba(0,0,0,0.45);
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.6);
+}
+
+.m-section-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.m-section-text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Блок "А так же" */
+
+.m-also {
+  margin-top: 12px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+.m-also-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.m-also-links a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.9);
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+}
+
+/* Блок цены */
+
+.m-price {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.6);
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Таблица бетона (мобильная) */
+
+.m-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 13px;
+}
+.m-table th,
+.m-table td {
+  padding: 6px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.m-table th {
+  text-align: left;
+  font-weight: 400;
+  color: rgba(255,255,255,0.9);
+}
+.m-table td {
+  color: rgba(255,255,255,0.85);
+}
+.m-table td:last-child {
+  text-align: right;
+}

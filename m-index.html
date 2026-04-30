@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Фасад Волгоград — мобильная</title>
+  <link rel="icon" href="/web-page1.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+  <div class="page">
+    <div class="m-header-title">ООО ФАСАД</div>
+    <div class="m-header-sub">Бетон • окна • доборы • фасад • вентиляция</div>
+
+    <div class="m-search">
+      <input type="text" id="m-search-input" placeholder="Поиск по услугам...">
+      <img src="icons/search.svg" alt="Поиск">
+    </div>
+
+    <ul class="m-main-list">
+      <li class="m-main-item">
+        <img src="icons/beton.svg" alt="">
+        Производство бетона и раствора
+      </li>
+      <li class="m-main-item">
+        <img src="icons/window.svg" alt="">
+        Пластиковые окна
+      </li>
+      <li class="m-main-item">
+        <img src="icons/dobor.svg" alt="">
+        Изготовление доборных элементов
+      </li>
+      <li class="m-main-item">
+        <img src="icons/vent.svg" alt="">
+        Вентиляционные короба
+      </li>
+    </ul>
+
+    <div class="m-card-grid" id="m-card-grid">
+      <!-- Бетон -->
+      <a href="m-beton.html" class="m-card"
+         data-tags="бетон,цемент,раствор,фундамент,м100,м150,м200,м250,м300,м350,м400">
+        <img src="image/beton.jpg" alt="Бетон" class="m-card-img">
+        <div class="m-card-body">
+          <div class="m-card-title">Бетон</div>
+          <div class="m-card-price" data-min-keys="m100,m150,m200,m250,m300,m350,m400">
+            от — ₽/м³
+          </div>
+        </div>
+      </a>
+
+      <!-- Окна -->
+      <a href="m-window.html" class="m-card"
+         data-tags="окна,пластиковые окна,пвх,остекление,балкон">
+        <img src="image/window.jpg" alt="Окна" class="m-card-img">
+        <div class="m-card-body">
+          <div class="m-card-title">Пластиковые окна</div>
+          <div class="m-card-price" data-min-keys="wd"></div>
+        </div>
+      </a>
+
+      <!-- Доборы -->
+      <a href="m-dobor.html" class="m-card"
+         data-tags="доборы,отливы,подоконники,фасонные элементы">
+        <img src="image/dobor.png" alt="Доборные элементы" class="m-card-img">
+        <div class="m-card-body">
+          <div class="m-card-title">Доборные элементы</div>
+          <div class="m-card-price" data-min-keys="db"></div>
+        </div>
+      </a>
+
+      <!-- Вентиляция -->
+      <a href="m-vent.html" class="m-card"
+         data-tags="вентиляция,воздуховоды,короба">
+        <img src="image/vent.png" alt="Вентиляция" class="m-card-img">
+        <div class="m-card-body">
+          <div class="m-card-title">Вентиляционные короба</div>
+          <div class="m-card-price" data-min-keys="vt"></div>
+        </div>
+      </a>
+
+      <!-- Фасад -->
+      <a href="m-fasad.html" class="m-card"
+         data-tags="фасад,панели,облицовка,сайдинг">
+        <img src="image/panel.jpg" alt="Фасад" class="m-card-img">
+        <div class="m-card-body">
+          <div class="m-card-title">Фасадные работы</div>
+          <div class="m-card-price" data-min-keys="fd"></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="m-contacts-note">
+      Все товары вы можете заказать, связавшись с нами:
+    </div>
+    <div class="m-contacts-list">
+      <a href="tel:+79999999991" class="m-contacts-link">+7 (999) 999-99-91</a>
+      <a href="tel:+79999999992" class="m-contacts-link">+7 (999) 999-99-92</a>
+      <a href="tel:+79999999993" class="m-contacts-link">+7 (999) 999-99-93</a>
+      <a href="mailto:example@mail.ru?subject=Желаю купить" class="m-contacts-link">
+        example@mail.ru
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
