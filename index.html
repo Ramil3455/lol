@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фасад Волгоград</title>
+  <link rel="icon" href="/web-page1.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-index">
+  <div class="scene-wrapper">
+    <div class="scene">
+      <div class="hero-bg"></div>
+
+      <div class="main-name">ООО ФАСАД</div>
+
+      <div class="main-content main-1">
+        <img src="icons/beton.svg" alt="Бетон" class="logo-min">
+        Производство бетона и раствора
+      </div>
+      <div class="main-content main-2">
+        <img src="icons/window.svg" alt="Окна" class="logo-min">
+        Пластиковые окна
+      </div>
+      <div class="main-content main-3">
+        <img src="icons/dobor.svg" alt="Доборные элементы" class="logo-min">
+        Изготовление доборных элементов
+      </div>
+      <div class="main-content main-4">
+        <img src="icons/vent.svg" alt="Вентиляционные короба" class="logo-min">
+        Изготовление вентиляторных коробов
+      </div>
+
+      <div class="search">
+        <input type="text" class="search-input" placeholder="Поиск ..."/>
+        <img src="icons/search.svg" alt="Поиск" class="search-icon">
+      </div>
+
+      <div class="cards-grid">
+        <!-- Бетон -->
+        <a href="main-beton.html" onclick="goTo('main-beton.html'); return false;"
+           class="card"
+           data-tags="бетон,цемент,раствор,фундамент,м³,100,150,200,250,300,350,400,бетон м100,
+           бетон м150, бетон м200, бетон м250, бетон м300, бетон м350, бетон м400,м100,м150,м200,
+           м300,м250,м350,м400,цемент, раствор, цементный раствор, бетонный раствор, фундамент,
+           заливка фундамента,бетон на фундамент,бетон волгоград,купить бетон,куб бетона,м3 бетона,м³ бетона">
+          <div class="card-content">
+            <img src="image/beton.jpg" alt="Бетон" class="card-img">
+            <div class="card-title">Бетон</div>
+            <div class="card-price" data-min-keys="m100,m150,m200,m250,m300,m350,m400">от — ₽/м³</div>
+          </div>
+        </a>
+
+        <!-- Окна -->
+        <a href="main-window.html" class="card"
+           data-tags="окно, окна, пластиковые окна, пвх окна, окно пвх, стеклопакет, стеклопакеты,пластиковое окно,
+           балконный блок, балкон, остекление балкона, остекление,установка окон, монтаж окон, замена окон, белые окна,
+           окна волгоград, купить окна">
+          <div class="card-content">
+            <img src="image/window.jpg" alt="Пластиковое окно" class="card-img">
+            <div class="card-title">Пластиковое окно</div>
+            <div class="card-price" data-min-keys="wd"></div>
+          </div>
+        </a>
+
+        <!-- Доборные элементы -->
+        <a href="main-dobor.html" class="card"
+           data-tags="добор, доборные элементы, доборный элемент, доборы, откос, откосы, откосы на окна,
+           отлив, отливы, оконные отливы, подоконник, подоконники, фасонные элементы,нащельник, металлоизделия,
+           жестяные изделия, добор для фасада, добор для кровли,комплектующие для фасада">
+          <div class="card-content">
+            <img src="image/dobor.png" alt="Доборные элементы" class="card-img">
+            <div class="card-title">Доборные элементы</div>
+            <div class="card-price" data-min-keys="db"></div>
+          </div>
+        </a>
+
+        <!-- Вентиляционные короба -->
+        <a href="main-vent.html" class="card"
+           data-tags="вентиляция, вентиляционный короб, вентиляционные короба, вентканал, вентиляционный канал,
+           воздуховод, воздуховоды, короб вентиляции, короб для вытяжки, вытяжка, вентиля шахта,изготовление коробов,
+           изготовление вентканалов, вентиляция дома, вентиляция квартиры,фасонные детали вентиляции">
+          <div class="card-content">
+            <img src="image/vent.png" alt="Вентиляционные короба" class="card-img">
+            <div class="card-title">Вентиляционные короба</div>
+            <div class="card-price" data-min-keys="vt"></div>
+          </div>
+        </a>
+
+        <!-- Фасад -->
+        <a href="main-fasad.html" class="card"
+           data-tags="фасад, фасадные панели,фасадные работы,керамика, работа с керамикой, фасадная панель, облицовка, облицовочные панели, отделка фасада,
+           наружная отделка, панели для фасада, сайдинг, панели под кирпич, панели под камень,
+           вентилируемый фасад, утепление фасада, фасад волгоград, купить фасадные панели,панели для дома, панели для цоколя">
+          <div class="card-content">
+            <img src="image/panel.jpg" alt="Фасадные панели" class="card-img">
+            <div class="card-title">Фасадные работы</div>
+            <div class="card-price" data-min-keys="fd"></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="overflow-text all">
+        Все товары вы можете заказать связавшись с нами:
+      </div>
+    </div>
+  </div>
+
+  <div class="contacts-container">
+    <div class="contacts-dropdown">
+      <input type="checkbox" id="contacts-toggle" class="toggle">
+      <label for="contacts-toggle" class="contacts-link">Контакты</label>
+      <div class="dropdown-content">
+        <a href="tel:+79999999991" class="contact-item">+7 (999) 999-99-91</a>
+        <a href="tel:+79999999992" class="contact-item">+7 (999) 999-99-92</a>
+        <a href="tel:+79999999993" class="contact-item">+7 (999) 999-99-93</a>
+        <a href="mailto:example@mail.ru?subject=Желаю купить" class="contact-item">
+          example@mail.ru
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
